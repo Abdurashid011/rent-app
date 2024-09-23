@@ -1,21 +1,40 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
 const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{html,js}",
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        "./src/**/*.{html,js}",
         "./node_modules/tw-elements/dist/js/**/*.js",
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-        "./resources/**/*.vue"
+        "./resources/**/*.vue",
     ],
     darkMode: 'class',
     important: true,
     theme: {
         screens: {
-            xs: "540px", sm: '640px', md: '768px', lg: '1024px', xl: '1280px', '2xl': '1536px',
-        }, container: {
-            center: true, padding: {
-                DEFAULT: '12px', sm: '1rem', lg: '45px', xl: '5rem', '2xl': '13rem',
+            xs: "540px",
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+            '2xl': '1536px',
+        },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '12px',
+                sm: '1rem',
+                lg: '45px',
+                xl: '5rem',
+                '2xl': '13rem',
             },
 
         },
@@ -24,12 +43,14 @@ module.exports = {
             'body': ['"League Spartan", sans-serif'],
         },
 
-
         extend: {
             screens: {
                 lg_992: '992px',
-            }, colors: {
-                'dark': '#3c4858', 'black': '#161c2d', 'dark-footer': '#161c28',
+            },
+            colors: {
+                'dark': '#3c4858',
+                'black': '#161c2d',
+                'dark-footer': '#161c28',
             },
 
             boxShadow: {
@@ -48,32 +69,44 @@ module.exports = {
             },
 
             spacing: {
-                0.75: '0.1875rem', 3.25: '0.8125rem'
+                0.75: '0.1875rem',
+                3.25: '0.8125rem'
             },
 
             height: ({
                          theme
                      }) => ({
-                '10.5': '2.625rem', '85': '21.25rem',
-            }), width: ({
-                            theme
-                        }) => ({
+                '10.5': '2.625rem',
+                '85': '21.25rem',
+            }),
+            width: ({
+                        theme
+                    }) => ({
                 '10.5': '2.625rem',
             }),
 
             maxWidth: ({
-                           theme, breakpoints
+                           theme,
+                           breakpoints
                        }) => ({
-                '1200': '71.25rem', '992': '60rem', '768': '45rem',
+                '1200': '71.25rem',
+                '992': '60rem',
+                '768': '45rem',
             }),
 
             zIndex: {
-                1: '1', 2: '2', 3: '3', 999: '999',
+                1: '1',
+                2: '2',
+                3: '3',
+                999: '999',
             },
         },
     },
 
-    plugins: [require("@tailwindcss/forms")({
-        strategy: 'class', // only generate classes
-    }),],
-}
+    plugins: [
+        forms,
+        require("@tailwindcss/forms")({
+            strategy: 'class', // only generate classes
+        }),
+    ],
+};
