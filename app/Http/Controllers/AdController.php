@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Branch;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -11,7 +12,8 @@ class AdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
+    public function index(
+    ): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         $ads = Ad::all();
         $branches = Branch::all();
@@ -21,9 +23,10 @@ class AdController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(
+    ): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
-        //
+        return view('ads.create');
     }
 
     /**
@@ -31,16 +34,28 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ad = Ad::query()->create([
+            'title'       => $request->get('title'),
+            'description' => $request->get('description'),
+            'gender'      => $request->get('gender'),
+            'address'     => $request->get('address'),
+            'branch_id'   => $request->get('branch_id'),
+            'user_id'     => auth()->id(),
+            'status_id'   => Status::ACTIVE,
+            'price'       => $request->get('price'),
+            'rooms'       => $request->get('rooms'),
+        ]);
+
+//        dd($ad);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource
      */
-    public function show(string $id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
+    public function show(string $id)
     {
         $ad = Ad::query()->find($id);
-        return view('ads.show', compact('ad'));
+        return view('ads.show', ['ad' => $ad]);
     }
 
     /**
