@@ -29,4 +29,9 @@ class Ad extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(AdImage::class);
+    }
 }
