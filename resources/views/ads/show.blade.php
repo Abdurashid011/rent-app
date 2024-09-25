@@ -56,8 +56,9 @@
                     <p class="text-slate-400">{{$ad->description}}</p>
 
                     <div class="w-full leading-[0] border-0 mt-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                                style="border:0" class="w-full h-[500px]" allowfullscreen></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
+                            style="border:0" class="w-full h-[500px]" allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -70,7 +71,8 @@
                                 <div class="flex justify-between items-center mt-4">
                                     <span class="text-xl font-medium">$ {{$ad->price}}</span>
 
-                                    <span class="bg-green-600/10 text-green-600 text-sm px-2.5 py-0.75 rounded h-6">{{$ad->status_name}}</span>
+                                    <span
+                                        class="bg-green-600/10 text-green-600 text-sm px-2.5 py-0.75 rounded h-6">{{$ad->status_name}}</span>
                                 </div>
 
                                 <ul class="list-none mt-4">
@@ -93,17 +95,18 @@
 
                             <div class="flex">
                                 <div class="p-1 w-1/2">
-                                    <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Book
-                                        Now</a>
+                                    <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
+                                        Book Now
+                                    </a>
                                 </div>
                                 <div class="p-1 w-1/2">
-                                    <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Offer
-                                        Now</a>
+                                    <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">
+                                        Offer Now
+                                    </a>
                                 </div>
                             </div>
                         </div>
-
-{{--                        @if (session('role_id') === 1 || session('user_id') === $ad->user_id)--}}
+                        @if(auth()->id() === $ad->user_id)
                             <div class="mt-12 text-center">
                                 <div class="mt-6">
                                     <a href="/ads/delete/{{$ad->id}}"
@@ -111,7 +114,7 @@
                                         <i class="uil uil-phone align-middle me-2"></i>O'chirish</a>
                                 </div>
                             </div>
-{{--                        @endif--}}
+                        @endif
                     </div>
                 </div>
             </div>

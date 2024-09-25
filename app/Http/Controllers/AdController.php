@@ -12,8 +12,7 @@ class AdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(
-    ): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function index(): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         $ads = Ad::all();
         $branches = Branch::all();
@@ -23,8 +22,7 @@ class AdController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(
-    ): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
+    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
         return view('ads.create');
     }
@@ -32,18 +30,18 @@ class AdController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): void
     {
         $ad = Ad::query()->create([
-            'title'       => $request->get('title'),
+            'title' => $request->get('title'),
             'description' => $request->get('description'),
-            'gender'      => $request->get('gender'),
-            'address'     => $request->get('address'),
-            'branch_id'   => $request->get('branch_id'),
-            'user_id'     => auth()->id(),
-            'status_id'   => Status::ACTIVE,
-            'price'       => $request->get('price'),
-            'rooms'       => $request->get('rooms'),
+            'gender' => $request->get('gender'),
+            'address' => $request->get('address'),
+            'branch_id' => $request->get('branch_id'),
+            'user_id' => auth()->id(),
+            'status_id' => Status::ACTIVE,
+            'price' => $request->get('price'),
+            'rooms' => $request->get('rooms'),
         ]);
 
 //        dd($ad);
@@ -52,7 +50,7 @@ class AdController extends Controller
     /**
      * Display the specified resource
      */
-    public function show(string $id)
+    public function show(string $id): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
         $ad = Ad::query()->find($id);
         return view('ads.show', ['ad' => $ad]);
