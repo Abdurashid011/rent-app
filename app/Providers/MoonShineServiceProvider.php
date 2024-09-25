@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\AdResource;
 use App\MoonShine\Resources\BranchResource;
+use App\MoonShine\Resources\UserResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -53,7 +54,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ]),
 
             MenuItem::make("E'lonlar", new AdResource()),
-            MenuItem::make("Filiallar", new BranchResource())
+            MenuItem::make("Filiallar", new BranchResource()),
+            MenuItem::make("Foydalanuvchilar", new UserResource())
         ];
     }
 

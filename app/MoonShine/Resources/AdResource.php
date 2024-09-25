@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use App\Enums\Gender;
-use App\Models\Branch;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Ad;
 
@@ -13,7 +12,6 @@ use MoonShine\Fields\Enum;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Text;
-use MoonShine\Fields\Textarea;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
 use MoonShine\Fields\ID;
@@ -37,13 +35,15 @@ class AdResource extends ModelResource
         return [
             Block::make([
                 ID::make()->sortable(),
-                Text::make("Sarlavha", 'title'),
-                Text::make("Ta'rif", 'desctription'),
-                Number::make("Narxi", 'price'),
-                Number::make("Xonalar", 'rooms'),
+                Text::make("Sarlavha", 'title')->sortable(),
+                Text::make("Ta'rif", 'description')->hideOnIndex(),
+                Number::make("Narxi", 'price')->sortable(),
+                Number::make("Xonalar", 'rooms')->sortable(),
                 Text::make("Manzil", 'address'),
-                Enum::make("Jinsi", 'gender')->attach(Gender::class),
-                BelongsTo::make(label: 'Filial', relationName: 'branch', resource: new BranchResource),
+                Enum::make("Jinsi", 'gender')->attach(Gender::class)->sortable(),
+                BelongsTo::make(label: "Muallif", relationName: 'owner', resource: new UserResource()),
+                BelongsTo::make(label: 'Filial', relationName: 'branch', resource: new BranchResource)->sortable(),
+                BelongsTo::make(label: 'Status', relationName: 'status', resource: new StatusResource)->sortable()
             ]),
         ];
     }

@@ -15,7 +15,7 @@
                                                 <label class="form-label font-medium text-slate-900 dark:text-white">
                                                     Qidiruv: <span class="text-red-600">*</span></label>
                                                 <div class="filter-search-form relative filter-border mt-2">
-                                                    <i class="uil uil-search icons"></i>
+                                                    <i  data-feather="search" class="uil uil-search icons"></i>
                                                     <input name="search_phrase" type="text" id="search_phrase"
                                                            class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0"
                                                            placeholder="Qidiruv iborasi">
@@ -27,7 +27,7 @@
                                                        class="form-label font-medium text-slate-900 dark:text-white">Filiallar
                                                 </label>
                                                 <div class="filter-search-form relative filter-border mt-2">
-                                                    <i class="uil uil-estate icons"></i>
+                                                    <i data-feather="map" class="uil uil-estate icons"></i>
                                                     <select class="form-select z-2" data-trigger name="search_branch"
                                                             id="choices-catagory-buy"
                                                             aria-label="Default select example">
@@ -45,7 +45,7 @@
                                                     Min Price :
                                                 </label>
                                                 <div class="filter-search-form relative filter-border mt-2">
-                                                    <i class="uil uil-usd-circle icons"></i>
+                                                    <i data-feather="dollar-sign" class="uil uil-usd-circle icons"></i>
                                                     <input type="number" name="min_price" id="buy-min-price"
                                                            class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0"
                                                            placeholder="Min Price">
@@ -58,7 +58,7 @@
                                                     Max Price :
                                                 </label>
                                                 <div class="filter-search-form relative filter-border mt-2">
-                                                    <i class="uil uil-usd-circle icons"></i>
+                                                    <i data-feather="dollar-sign" class="uil uil-usd-circle icons"></i>
                                                     <input type="number" name="max_price" id="buy-max-price"
                                                            class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0"
                                                            placeholder="Max Price">
@@ -105,17 +105,17 @@
 
                             <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                                 <li class="flex items-center me-4">
-                                    <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                                    <i data-feather="map-pin" class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
                                     <span>{{$ad->address}}</span>
                                 </li>
 
                                 <li class="flex items-center me-4">
-                                    <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                                    <i data-feather="home" class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
                                     <span>{{$ad->rooms}}-Rooms</span>
                                 </li>
 
                                 <li class="flex items-center">
-                                    <i class="uil uil-bath text-2xl me-2 text-green-600"></i>
+                                    <i data-feather="code" class="uil uil-bath text-2xl me-2 text-green-600"></i>
                                     <span>{{$ad->gender}}</span>
                                 </li>
                             </ul>

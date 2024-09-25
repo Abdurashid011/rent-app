@@ -38,7 +38,9 @@
 
             <li class="sm:inline ps-1 mb-0 hidden">
                 <a href="/logout"
-                   class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Logout</a>
+                   class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">
+                    <i data-feather="log-out" class="uil uil-bed-double text-2xl me-2 "></i>
+                    Logout</a>
             </li>
         </ul>
         <!--Login button End-->

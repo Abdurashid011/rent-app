@@ -14,7 +14,7 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="dark:bg-slate-900">
