@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\AdImage;
 use App\Models\Branch;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
-        $ads = Ad::all();
+        $ads = Ad::with('images')->get();
         $branches = Branch::all();
         return view('ads.index', compact('ads', 'branches'));
     }
@@ -32,6 +34,12 @@ class AdController extends Controller
      */
     public function store(Request $request): void
     {
+         $request->validate([
+            'title' => 'required|min:5',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $ad = Ad::query()->create([
             'title' => $request->get('title'),
             'description' => $request->get('description'),
@@ -44,7 +52,12 @@ class AdController extends Controller
             'rooms' => $request->get('rooms'),
         ]);
 
-//        dd($ad);
+        $file = Storage::disk('public')->put('/', $request->image);
+
+        AdImage::query()->create([
+            'ad_id' => $ad->id,
+            'name' => $file,
+        ]);
     }
 
     /**

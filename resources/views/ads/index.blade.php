@@ -15,7 +15,7 @@
                                                 <label class="form-label font-medium text-slate-900 dark:text-white">
                                                     Qidiruv: <span class="text-red-600">*</span></label>
                                                 <div class="filter-search-form relative filter-border mt-2">
-                                                    <i  data-feather="search" class="uil uil-search icons"></i>
+                                                    <i data-feather="search" class="uil uil-search icons"></i>
                                                     <input name="search_phrase" type="text" id="search_phrase"
                                                            class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0"
                                                            placeholder="Qidiruv iborasi">
@@ -33,7 +33,8 @@
                                                             aria-label="Default select example">
                                                         <option value="">Filiallar</option>
                                                         @foreach ($branches as $branch)
-                                                            <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                                            <option
+                                                                value="{{ $branch->id }}">{{ $branch->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -88,12 +89,14 @@
                     <div
                         class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                         <div class="relative">
-                            <img src="../assets/images/ads/{{$ad->image}}" alt="">
+                            <img src="{{asset("/storage/".$ad->images->first()?->name)}}" alt="">
 
                             <div class="absolute top-4 end-4">
                                 <a href="javascript:void(0)"
-                                   class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i
-                                        class="mdi mdi-heart text-[20px]"></i></a>
+                                   class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full
+                                            text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600
+                                            hover:text-red-600 dark:hover:text-red-600">
+                                    <i data-feather="bookmark" class="mdi mdi-heart text-[20px]"></i></a>
                             </div>
                         </div>
 
@@ -105,7 +108,8 @@
 
                             <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                                 <li class="flex items-center me-4">
-                                    <i data-feather="map-pin" class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                                    <i data-feather="map-pin"
+                                       class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
                                     <span>{{$ad->address}}</span>
                                 </li>
 
@@ -121,11 +125,11 @@
                             </ul>
 
                             <ul class="pt-6 flex justify-between items-center list-none">
-                                <li>
-                                    <span class="text-slate-400">Price</span>
-                                    <p class="text-lg font-medium">$ {{$ad->price}}</p>
+                                <li class="flex items-center">
+                                    <i data-feather="dollar-sign"
+                                       class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                                    <span class="text-lg font-medium">Price ${{$ad->price}}</span>
                                 </li>
-
                             </ul>
                         </div>
                     </div><!--end property content-->
