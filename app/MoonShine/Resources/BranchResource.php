@@ -7,6 +7,7 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Branch;
 
+use MoonShine\Fields\Relationships\HasMany;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Fields\ID;
@@ -32,6 +33,7 @@ class BranchResource extends ModelResource
         return [
             ID::make()->sortable(),
             Text::make('Nomi', 'name')->sortable(),
+            HasMany::make(label: 'Ads', relationName: 'ads', resource:  new AdResource())->onlyLink(),
         ];
     }
 

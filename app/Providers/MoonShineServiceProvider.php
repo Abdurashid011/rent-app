@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\AdResource;
 use App\MoonShine\Resources\BranchResource;
+use App\MoonShine\Resources\ImageResource;
 use App\MoonShine\Resources\UserResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -55,7 +56,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
             MenuItem::make("E'lonlar", new AdResource()),
             MenuItem::make("Filiallar", new BranchResource()),
-            MenuItem::make("Foydalanuvchilar", new UserResource())
+            MenuItem::make("Foydalanuvchilar", new UserResource()),
+            MenuItem::make("Rasmlar", new ImageResource()),
+            MenuItem::make("Home",url('/'))->icon("heroicons.home-modern")
+
         ];
     }
 

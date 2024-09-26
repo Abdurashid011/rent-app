@@ -28,9 +28,8 @@
                                                 </label>
                                                 <div class="filter-search-form relative filter-border mt-2">
                                                     <i data-feather="map" class="uil uil-estate icons"></i>
-                                                    <select class="form-select z-2" data-trigger name="search_branch"
-                                                            id="choices-catagory-buy"
-                                                            aria-label="Default select example">
+                                                    <select class="form-control bg-gray-50 dark:bg-slate-800 border-0" name="search_branch"
+                                                            id="choices-catagory-buy">
                                                         <option value="">Filiallar</option>
                                                         @foreach ($branches as $branch)
                                                             <option
