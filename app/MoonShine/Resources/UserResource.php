@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Ad;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use MoonShine\Fields\Relationships\HasMany;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
@@ -34,6 +36,7 @@ class UserResource extends ModelResource
                 ID::make()->sortable(),
                 Text::make('Foydalanuvchi', 'name'),
                 Text::make('Email', 'email'),
+                HasMany::make(label: "E'lonlar", relationName: "ads", resource: new AdResource())->onlyLink(),
             ]),
         ];
     }

@@ -54,12 +54,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ),
             ]),
 
-            MenuItem::make("E'lonlar", new AdResource()),
-            MenuItem::make("Filiallar", new BranchResource()),
-            MenuItem::make("Foydalanuvchilar", new UserResource()),
-            MenuItem::make("Rasmlar", new ImageResource()),
-            MenuItem::make("Home",url('/'))->icon("heroicons.home-modern")
-
+            MenuItem::make("E'lonlar", new AdResource())->icon('heroicons.building-library'),
+            MenuItem::make("Filiallar", new BranchResource())->icon('heroicons.building-office-2'),
+            MenuItem::make("Foydalanuvchilar", new UserResource())->icon('heroicons.user-group'),
+            MenuItem::make("Rasmlar", new ImageResource())->icon('heroicons.photo'),
+            MenuItem::make("Home",url('/'))->icon("heroicons.home")
         ];
     }
 
