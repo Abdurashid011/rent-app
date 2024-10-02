@@ -39,4 +39,10 @@ class Ad extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function bookmarkedByUsers(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'bookmarks', 'ad_id', 'user_id');
+    }
+
 }

@@ -49,7 +49,6 @@ class AdResource extends ModelResource
             ]),
         ];
     }
-
     /**
      * @param Ad $item
      *

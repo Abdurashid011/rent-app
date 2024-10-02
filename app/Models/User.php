@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -45,8 +46,18 @@ class User extends Authenticatable
         ];
     }
 
-    public function ads(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function ads(): HasMany
     {
         return $this->hasMany(Ad::class);
+    }
+
+    public function bookmarkAds(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Ad::class, 'bookmarks', 'user_id', 'ad_id');
+    }
+
+    public function bookmarks(): HasMany
+    {
+        return $this->hasMany(Bookmark::class);
     }
 }

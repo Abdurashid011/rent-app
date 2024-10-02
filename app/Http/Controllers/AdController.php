@@ -16,8 +16,13 @@ class AdController extends Controller
      */
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
-        $ads = Ad::with('images')->get();
         $branches = Branch::all();
+        $userId = auth()->id();
+        $ads = Ad::query()->withCount([
+            'bookmarkedByUsers as bookmarked' => function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            }
+        ])->get();
         return view('ads.index', compact('ads', 'branches'));
     }
 
@@ -58,6 +63,8 @@ class AdController extends Controller
             'ad_id' => $ad->id,
             'name' => $file,
         ]);
+
+//        return redirect(route('home'))->with();
     }
 
     /**
