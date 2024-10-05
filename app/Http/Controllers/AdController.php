@@ -37,7 +37,7 @@ class AdController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): void
+    public function store(Request $request): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
          $request->validate([
             'title' => 'required|min:5',
@@ -64,7 +64,7 @@ class AdController extends Controller
             'name' => $file,
         ]);
 
-//        return redirect(route('home'))->with();
+        return $this->index();
     }
 
     /**

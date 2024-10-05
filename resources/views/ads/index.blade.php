@@ -28,7 +28,8 @@
                                                 </label>
                                                 <div class="filter-search-form relative filter-border mt-2">
                                                     <i data-feather="map" class="uil uil-estate icons"></i>
-                                                    <select class="form-control bg-gray-50 dark:bg-slate-800 border-0" name="search_branch"
+                                                    <select class="form-control bg-gray-50 dark:bg-slate-800 border-0"
+                                                            name="search_branch"
                                                             id="choices-catagory-buy">
                                                         <option value="">Filiallar</option>
                                                         @foreach ($branches as $branch)
@@ -100,14 +101,6 @@
                                     </button>
                                 </form>
                             </div>
-
-{{--                            <div class="absolute top-4 end-4">--}}
-{{--                                <a href="javascript:void(0)"--}}
-{{--                                   class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full--}}
-{{--                                            text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600--}}
-{{--                                            hover:text-red-600 dark:hover:text-red-600">--}}
-{{--                                    <i data-feather="bookmark" class="mdi mdi-heart text-[20px]"></i></a>--}}
-{{--                            </div>--}}
                         </div>
 
                         <div class="p-6">
