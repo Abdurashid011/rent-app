@@ -52,6 +52,15 @@ services:
         networks:
             - app-network  # Maxsus tarmoq
 
+    node:
+        container_name: rent_app_nodes
+        image: node:20
+        working_dir: /var/www
+        volumes:
+            - .:/var/www
+        networks:
+            - app-network  # Corrected network to use app-network
+        command: bash -c "npm install && npm run build"
 volumes:
     postgres_data:
 
