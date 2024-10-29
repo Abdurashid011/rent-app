@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->integer('price');
+            $table->float('price');
             $table->integer('rooms');
             $table->enum('gender', ['male', 'female']);
             $table->foreignId('user_id')->constrained();
