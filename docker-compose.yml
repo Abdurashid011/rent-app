@@ -43,7 +43,7 @@ services:
         container_name: web
         image: nginx:alpine  # Nginx image
         ports:
-            - "9000:80"  # Host port 9000 dan container port 80 ga
+            - "80:80"  # Host port 9000 dan container port 80 ga
         volumes:
             - ./:/var/www  # Laravel ilovasini qo'shish
             - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Nginx konfiguratsiyasini qo'shish
