@@ -50,5 +50,5 @@ jobs:
           script: |
             cd rent_app
             git pull
-            docker-compose -f docker-compose-production.yml up -d --build
+            docker-compose -f docker-compose.yml up -d --build
             docker exec  rent_app_php php artisan optimize
