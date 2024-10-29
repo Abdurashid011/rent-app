@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('status_id')->constrained();
             $table->timestamps();
         });
+
     }
 
     public function down(): void
