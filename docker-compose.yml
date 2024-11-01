@@ -16,7 +16,7 @@ services:
 
     postgres:
         image: postgres
-        container_name: postgres
+        container_name: rent_app_postgres
         restart: always
         environment:
             POSTGRES_DB: ${DB_DATABASE}
