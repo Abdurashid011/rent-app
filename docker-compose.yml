@@ -10,7 +10,7 @@ services:
         networks:
             - app-network
         depends_on:
-            - rent_app_postgres
+            - postgres
         environment:
             DB_CONNECTION: pgsql
             DB_HOST: rent_app_postgres
