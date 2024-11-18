@@ -19,9 +19,9 @@ services:
             DB_USERNAME: ${DB_USERNAME}
             DB_PASSWORD: ${DB_PASSWORD}
 
-    rent_app_postgres:
+    postgres:
         image: postgres
-        container_name: rent_app_postgres
+        container_name: postgres
         restart: always
         environment:
             POSTGRES_DB: ${DB_DATABASE}
@@ -50,7 +50,7 @@ services:
         container_name: rent_nginx
         image: nginx:alpine
         ports:
-            - "8080:80"
+            - "80:80"
         volumes:
             - .:/var/www
             - ./nginx.conf:/etc/nginx/conf.d/default.conf
